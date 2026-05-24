@@ -41,6 +41,9 @@ jobs:
         working-directory: ./hexo-blog
         run: npm run clean && npm run build
 
+      - name: Add .nojekyll
+        run: touch ./hexo-blog/public/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
