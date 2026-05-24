@@ -42,7 +42,7 @@ docs/
 
 ### 添加新文章
 
-1. 在 `docs/` 目录下创建或选择分类目录
+1. 在 `docs/_posts/` 目录下创建或选择分类目录
 2. 创建 Markdown 文件，包含以下 front-matter：
 
 ```yaml
@@ -119,8 +119,7 @@ menu:
 hexo-blog/
 ├── _config.yml                 # Hexo 配置
 ├── _config.hexo-theme-Klise-enhanced.yml  # 主题配置
-├── docs/                       # 文章源文件
-├── source/                     # 静态资源
+├── docs/                       # 文章与页面源文件（posts 在 docs/_posts/）
 ├── themes/                     # 主题
 │   └── hexo-theme-Klise-enhanced/
 ├── .hermes/                    # Hermes 记忆和技能
@@ -134,13 +133,13 @@ hexo-blog/
 ## 常见问题
 
 ### Q: 如何添加新分类？
-A: 在 `docs/` 目录下创建新文件夹，将文章放入其中即可。
+A: 在 `docs/_posts/` 目录下创建新文件夹，将文章放入其中即可。
 
 ### Q: 如何修改主题？
 A: 编辑 `_config.hexo-theme-Klise-enhanced.yml` 文件。
 
 ### Q: 如何自定义域名？
-A: 在 `source/` 目录下创建 `CNAME` 文件，写入你的域名。
+A: 在 `docs/` 目录下创建 `CNAME` 文件，写入你的域名。
 
 ### Q: 图片无法显示？
 A: 将图片放在文章同级目录，使用相对路径 `./image.png` 引用。

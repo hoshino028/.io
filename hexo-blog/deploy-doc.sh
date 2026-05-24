@@ -37,7 +37,7 @@ show_help() {
     echo ""
     echo "示例:"
     echo "  $0 article.md 技术文档"
-    echo "  $0 --dir ./docs/项目笔记 项目笔记"
+    echo "  $0 --dir ./docs/_posts/项目笔记 项目笔记"
     echo "  $0 --deploy article.md 技术文档"
 }
 
@@ -70,7 +70,7 @@ import_file() {
     fi
     
     # 创建分类目录
-    local category_dir="docs/$category"
+    local category_dir="docs/_posts/$category"
     mkdir -p "$category_dir"
     
     # 复制文件
@@ -92,7 +92,7 @@ import_directory() {
     fi
     
     # 创建分类目录
-    local category_dir="docs/$category"
+    local category_dir="docs/_posts/$category"
     mkdir -p "$category_dir"
     
     # 复制所有 Markdown 文件
