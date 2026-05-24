@@ -9,15 +9,62 @@
 npm install
 ```
 
-### 本地预览
+### 本地构建与预览
+
+注意：必须在 Hexo 项目根目录运行命令，也就是包含 `_config.yml` 和 `package.json` 的目录：
+
 ```bash
-npx hexo server
+cd /Users/songjiawei/project/.io/hexo-blog
+npm install
+npx hexo clean && npx hexo generate
+npx hexo server --host 127.0.0.1 --port 4000
 ```
-访问 http://localhost:4000 查看效果。
+
+访问 http://127.0.0.1:4000 查看效果。
+
+生成的静态文件会输出到 `public/`，常见检查项包括：
+
+```text
+public/index.html
+public/about/index.html
+public/CNAME
+```
 
 ### 生成静态文件
 ```bash
-npx hexo generate
+npx hexo clean && npx hexo generate
+```
+
+### 停止本地预览服务
+
+如果服务是在当前终端启动的，直接按 `Ctrl+C` 停止。
+
+如果服务已经在后台运行，可以按端口结束：
+
+```bash
+lsof -ti :4000 | xargs kill
+```
+
+### 常见问题：clean/generate 只显示 help/init/version
+
+如果执行：
+
+```bash
+npx hexo clean && npx hexo generate
+```
+
+结果只显示 `help`、`init`、`version` 这些命令，通常说明当前目录不是 Hexo 项目根目录。
+
+不要在父目录运行：
+
+```bash
+cd /Users/songjiawei/project/.io
+```
+
+应该进入真正的博客项目目录：
+
+```bash
+cd /Users/songjiawei/project/.io/hexo-blog
 ```
 
 ### 部署到 GitHub Pages
