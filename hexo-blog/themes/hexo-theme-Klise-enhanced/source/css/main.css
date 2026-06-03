@@ -5,16 +5,16 @@ body {
   color: #0d122b;
   background: 
   /* 使用 linear-gradient 和背景图结合 */
-  linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
-  url('../img/girlkni.png');
+  linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), 
+  url('../img/hai.png');
 }
 
 body[data-theme=dark] {
   color: #c7bebe;
   background: 
   /* 使用 linear-gradient 和背景图结合 */
-  linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
-  url('../img/girlkni.png');/*图片路径，请将图片存放至主题文件夹下的source/img */
+  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+  url('../img/hai.png');/*图片路径，请将图片存放至主题文件夹下的source/img */
 }
 /*----以上 在此处修改背景图片，可为明暗模式设置不同的背景图片----*/
 
@@ -1832,3 +1832,118 @@ body[data-theme=dark] .wrapper.post {
   background-color: rgba(0, 0, 0, 0.6); /* 暗黑模式下使用半透明黑底 */
 }
 /*----------------------------------以上分类页面分列----------------------------*/
+
+/*----------------------------------类别页面样式----------------------------*/
+.category-section {
+  margin-bottom: 0.5rem;
+}
+
+.category-details {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.category-section:last-child .category-details {
+  border-bottom: none;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  user-select: none;
+}
+
+.category-title::-webkit-details-marker {
+  display: none;
+}
+
+.category-title::before {
+  content: '▶';
+  font-size: 0.7rem;
+  margin-right: 0.6rem;
+  transition: transform 0.2s ease;
+  color: #666;
+}
+
+.category-details[open] .category-title::before {
+  transform: rotate(90deg);
+}
+
+.category-title a {
+  color: #0d122b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.category-title a:hover {
+  color: #c6911b;
+}
+
+.category-icon {
+  margin-right: 0.4rem;
+}
+
+.category-count {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: normal;
+  margin-left: 0.3rem;
+}
+
+.category-posts-list {
+  list-style: none;
+  padding: 0 0 0 1.5rem;
+  margin: 0;
+}
+
+.category-post-item {
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+}
+
+.category-post-item:last-child {
+  border-bottom: none;
+}
+
+.post-link {
+  color: #0d122b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-link:hover {
+  color: #c6911b;
+  text-decoration: underline;
+}
+
+/* 暗黑模式适配 */
+body[data-theme=dark] .category-details {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme=dark] .category-title::before {
+  color: #999;
+}
+
+body[data-theme=dark] .category-title a {
+  color: #c7bebe;
+}
+
+body[data-theme=dark] .category-count {
+  color: #999;
+}
+
+body[data-theme=dark] .post-link {
+  color: #c7bebe;
+}
+
+body[data-theme=dark] .category-post-item {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/*----------------------------------以上类别页面样式----------------------------*/

@@ -1,22 +1,53 @@
+
 <div class="wrapper">
-    <header class="header">
-      <h1 class="header-title center"><%=page.title%></h1>
-    </header>
-    
-      <main class="page-content" aria-label="Content">
-      
-        <div class="categories-grid">
-            <% site.categories.forEach(function(category) { %>
-              <div class="category-item">
-                <a href="<%= url_for(category.path) %>">
-                  <%= category.name %> (<%= category.length %>)
-                </a>
-              </div>
-            <% }); %>
-          </div>
-         
-     
-      </main>
-      
+  <div class="author">
+      <div class="author-avatar-wrapper">
+        <img
+          class="author-avatar"
+          src="<%- url_for('/img/ams.gif') %>"
+          alt="avatar"
+          loading="lazy"
+        />
+    </div>
+    <h2 class="author-name"><%=config.author%></h2>
+    <p class="author-bio"><%=theme.bio%></p>
   </div>
-  
+
+  <header class="header">
+    <h1 class="header-title center">类别</h1>
+  </header>
+
+  <main class="page-content" aria-label="Content">
+    <% 
+      var categories = site.categories;
+      // 按类别名称排序
+      var sortedCategories = categories.sort('name', 1);
+    %>
+    <% if (sortedCategories.length > 0) { %>
+      <% sortedCategories.forEach(function(category) { %>
+        <section class="category-section">
+          <details class="category-details">
+            <summary class="category-title">
+              <span class="category-icon">📚</span>
+              <a href="<%= url_for(category.path) %>"><%= category.name %></a>
+              <span class="category-count">(<%= category.length %>)</span>
+            </summary>
+            <ul class="category-posts-list">
+              <% 
+                // 按标题排序，但让没有数字前缀的标题排在最后
+                var posts = category.posts.sort('title', 1);
+              %>
+              <% posts.each(function(post) { %>
+                <li class="category-post-item">
+                  <a href="<%= url_for(post.path) %>" class="post-link"><%= post.title %></a>
+                </li>
+              <% }); %>
+            </ul>
+          </details>
+        </section>
+      <% }); %>
+    <% } else { %>
+      <p>暂无分类</p>
+    <% } %>
+  </main>
+</div>
